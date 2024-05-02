@@ -2,6 +2,8 @@ import 'package:bmi_calculator/themes/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 80.0;
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -54,6 +56,12 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
+            Container(
+              color: const Color(0xFFEB1555),
+              margin: const EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: bottomContainerHeight,
+            )
           ],
         )
     );
