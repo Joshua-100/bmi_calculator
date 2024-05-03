@@ -43,18 +43,15 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                       child: ReusableCard(
-                    cardChild: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.mars,
-                          size: 80.0,
-                        ),
-                        Text("Male"),
-                      ],
-                    ),
+                    cardChild: CardElements(
+                        text: Text("Male"), icon: FontAwesomeIcons.mars),
                   )),
-                  Expanded(child: ReusableCard()),
+                  Expanded(
+                    child: ReusableCard(
+                        cardChild: CardElements(
+                            text: Text("Female"),
+                            icon: FontAwesomeIcons.venus)),
+                  ),
                 ],
               ),
             ),
@@ -86,6 +83,27 @@ class _InputPageState extends State<InputPage> {
       margin: EdgeInsets.all(8),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15)), color: color),
+    );
+  }
+}
+
+class CardElements extends StatelessWidget {
+  const CardElements({super.key, required this.text, required this.icon});
+
+  final IconData icon;
+  final Text text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        text,
+      ],
     );
   }
 }
