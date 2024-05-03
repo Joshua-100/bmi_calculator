@@ -1,6 +1,8 @@
 import 'package:bmi_calculator/themes/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerHeight = 80.0;
 
@@ -33,16 +35,25 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        appBar: AppBar(
-          title: const Text("BMI")
-        ),
+        appBar: AppBar(title: const Text("BMI")),
         body: Column(
           children: [
             Expanded(
               child: Row(
                 children: [
-                  Expanded(child: ReusableCard()),
+                  Expanded(
+                      child: ReusableCard(
+                    cardChild: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.mars,
+                          size: 80.0,
+                        ),
+                        Text("Male"),
+                      ],
+                    ),
+                  )),
                   Expanded(child: ReusableCard()),
                 ],
               ),
@@ -63,21 +74,18 @@ class _InputPageState extends State<InputPage> {
               height: bottomContainerHeight,
             )
           ],
-        )
-    );
+        ));
   }
 
-
-
-  Container ReusableCard({Color color = const Color(0xFF1D1E33)}) { 
+  Container ReusableCard(
+      {Color color = const Color(0xFF1D1E33),
+      Widget cardChild = const SizedBox()}) {
     // Color color = const Color(0xFF1D1E33);
     return Container(
-            margin: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: color
-
-            ),
-          );
+      child: cardChild,
+      margin: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15)), color: color),
+    );
   }
 }
