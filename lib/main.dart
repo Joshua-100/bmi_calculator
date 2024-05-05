@@ -1,10 +1,11 @@
 import 'package:bmi_calculator/themes/theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bmi_calculator/components/card_elements.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
 
 const bottomContainerHeight = 80.0;
+const marginTop = 10.0;
 
 void main() => runApp(const MyApp());
 
@@ -28,10 +29,6 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  void doNothing() {
-    print("Yes");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,66 +40,44 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                       child: ReusableCard(
+                    color: const Color(0xFF1D1E33),
                     cardChild: CardElements(
                         label: "Male", icon: FontAwesomeIcons.mars),
                   )),
                   Expanded(
                     child: ReusableCard(
+                        color: const Color(0xFF1D1E33),
                         cardChild: CardElements(
                             label: "Female", icon: FontAwesomeIcons.venus)),
                   ),
                 ],
               ),
             ),
-            Expanded(child: ReusableCard()),
+            Expanded(
+                child: ReusableCard(
+              color: const Color(0xFF1D1E33),
+            )),
             Expanded(
               child: Row(
                 children: [
-                  Expanded(child: ReusableCard()),
-                  Expanded(child: ReusableCard())
+                  Expanded(
+                      child: ReusableCard(
+                    color: const Color(0xFF1D1E33),
+                  )),
+                  Expanded(
+                      child: ReusableCard(
+                    color: const Color(0xFF1D1E33),
+                  ))
                 ],
               ),
             ),
             Container(
               color: const Color(0xFFEB1555),
-              margin: const EdgeInsets.only(top: 10.0),
+              margin: const EdgeInsets.only(top: marginTop),
               width: double.infinity,
               height: bottomContainerHeight,
             )
           ],
         ));
-  }
-
-  Container ReusableCard(
-      {Color color = const Color(0xFF1D1E33),
-      Widget cardChild = const SizedBox()}) {
-    // Color color = const Color(0xFF1D1E33);
-    return Container(
-      child: cardChild,
-      margin: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(15)), color: color),
-    );
-  }
-}
-
-class CardElements extends StatelessWidget {
-  CardElements({this.icon, this.label});
-
-  final IconData? icon;
-  final String? label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          FontAwesomeIcons.mars,
-          size: 80.0,
-        ),
-        Text("Male"),
-      ],
-    );
   }
 }
