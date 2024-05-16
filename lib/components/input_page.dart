@@ -83,6 +83,7 @@ class _inputPageState extends State<inputPage> {
                     ],
                   ),
                   Slider(
+                    activeColor: const Color(0xFFEB1555),
                     label: "Select Height",
                     value: height.toDouble(),
                     onChanged: (value) {
