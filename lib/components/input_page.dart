@@ -17,12 +17,14 @@ class inputPage extends StatefulWidget {
 
 class _inputPageState extends State<inputPage> {
   GenderType? selectedGender;
+  int height = 10;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text("BMI")),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: Row(
@@ -60,11 +62,36 @@ class _inputPageState extends State<inputPage> {
                 child: ReusableCard(
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
                     "HEIGHT",
                     style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        "$height",
+                        style: kNumberTextStyle,
+                      ),
+                      Text(
+                        "cm",
+                        style: kLabelTextStyle,
+                      )
+                    ],
+                  ),
+                  Slider(
+                    label: "Select Height",
+                    value: height.toDouble(),
+                    onChanged: (value) {
+                      setState(() {
+                        height = value.toInt();
+                      });
+                    },
+                    min: 30,
+                    max: 250,
                   )
                 ],
               ),
