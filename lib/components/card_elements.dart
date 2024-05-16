@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-const double iconSize = 80.0;
-const fontSize = 20.0;
+import 'package:bmi_calculator/constants.dart';
 
 class CardElements extends StatelessWidget {
   CardElements({this.icon, this.label});
@@ -23,10 +21,7 @@ class CardElements extends StatelessWidget {
         ),
         Text(
           "$label",
-          style: const TextStyle(
-            color: Color(0xFF8D8E98),
-            fontSize: fontSize
-          ),
+          style: labelTextStyle,
         ),
       ],
     );
