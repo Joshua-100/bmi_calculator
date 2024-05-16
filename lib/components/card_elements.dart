@@ -14,14 +14,14 @@ class CardElements extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: iconSize,
+          size: kIconSize,
         ),
         const SizedBox(
           height: 10,
         ),
         Text(
           "$label",
-          style: labelTextStyle,
+          style: kLabelTextStyle,
         ),
       ],
     );

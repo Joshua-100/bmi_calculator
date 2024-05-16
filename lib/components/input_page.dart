@@ -35,8 +35,8 @@ class _inputPageState extends State<inputPage> {
                       });
                     },
                     color: (selectedGender == GenderType.male)
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: CardElements(
                         label: "Male", icon: FontAwesomeIcons.mars),
                   )),
@@ -48,8 +48,8 @@ class _inputPageState extends State<inputPage> {
                           });
                         },
                         color: (selectedGender == GenderType.female)
-                            ? activeCardColor
-                            : inactiveCardColor,
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
                         cardChild: CardElements(
                             label: "Female", icon: FontAwesomeIcons.venus)),
                   ),
@@ -64,31 +64,31 @@ class _inputPageState extends State<inputPage> {
                 children: [
                   Text(
                     "HEIGHT",
-                    style: labelTextStyle,
+                    style: kLabelTextStyle,
                   )
                 ],
               ),
-              color: activeCardColor,
+              color: kActiveCardColor,
             )),
             Expanded(
               child: Row(
                 children: [
                   Expanded(
                       child: ReusableCard(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   )),
                   Expanded(
                       child: ReusableCard(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ))
                 ],
               ),
             ),
             Container(
               color: const Color(0xFFEB1555),
-              margin: const EdgeInsets.only(top: marginTop),
+              margin: const EdgeInsets.only(top: kMarginTop),
               width: double.infinity,
-              height: bottomContainerHeight,
+              height: kBottomContainerHeight,
             )
           ],
         ));
