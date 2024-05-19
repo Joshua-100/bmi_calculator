@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import "package:bmi_calculator/components/card_elements.dart";
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/constants.dart';
 
@@ -18,6 +20,8 @@ class inputPage extends StatefulWidget {
 class _inputPageState extends State<inputPage> {
   GenderType? selectedGender;
   int height = 100;
+  int weight = 80;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -104,10 +108,69 @@ class _inputPageState extends State<inputPage> {
                 children: [
                   Expanded(
                       child: ReusableCard(
+                    cardChild: Column(
+                      children: [
+                        const Text(
+                          "WEIGHT",
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          "$weight",
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          children: [
+                            RoundButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            RoundButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                })
+                          ],
+                        ),
+                      ],
+                    ),
                     color: kActiveCardColor,
                   )),
                   Expanded(
                       child: ReusableCard(
+                    cardChild: Column(
+                      children: [
+                        Text(
+                          "AGE😄",
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          "$age",
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          children: [
+                            RoundButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                }),
+                            RoundButton(icon: FontAwesomeIcons.plus, onPressed: (){
+                              setState(() {
+                                age++;
+                              });
+                            })
+                          ],
+                        )
+                      ],
+                    ),
                     color: kActiveCardColor,
                   ))
                 ],
@@ -121,5 +184,23 @@ class _inputPageState extends State<inputPage> {
             )
           ],
         ));
+  }
+}
+
+class RoundButton extends StatelessWidget {
+  RoundButton({required this.icon, required this.onPressed});
+
+  IconData? icon;
+  Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 88.0, minHeight: 50.0),
+      child: Icon(icon),
+      fillColor: Color(0xFF4C4F5E),
+      onPressed: onPressed,
+      shape: CircleBorder(),
+    );
   }
 }
