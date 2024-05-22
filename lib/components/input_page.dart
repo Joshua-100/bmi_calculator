@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
@@ -89,7 +90,7 @@ class _inputPageState extends State<inputPage> {
                   ),
                   Slider(
                     activeColor: Colors.white,
-                    thumbColor: const Color(0xFFEB1555),
+                    thumbColor: kButtonColor,
                     label: "Select Height",
                     value: height.toDouble(),
                     onChanged: (value) {
@@ -186,17 +187,8 @@ class _inputPageState extends State<inputPage> {
                   builder: (context) => ResultsPage(),
                 ),
               ),
-              child: Container(
-                color: const Color(0xFFEB1555),
-                margin: const EdgeInsets.only(top: kMarginTop),
-                width: double.infinity,
-                height: kBottomContainerHeight,
-                child: Center(
-                  child: const Text(
-                    "CALCULATE",
-                    style: TextStyle(color: Colors.white, fontSize: 35),
-                  ),
-                ),
+              child: MyButton(
+                text: 'CALCULATE', onPressed: () { print("Yess"); },
               ),
             )
           ],

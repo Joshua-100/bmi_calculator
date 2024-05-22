@@ -22,10 +22,27 @@ class ResultsPage extends StatelessWidget {
                 style: kLabelTextStyle,
               ),
             ),
-            Text(
-              "34.3",
-              style: kNumberTextStyle,
-            )
+            ReusableCard(
+              cardChild: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 150, horizontal: 50),
+                child: Column(
+                  children: [
+                    Text(
+                      "Normal",
+                      style: TextStyle(fontSize: 20, color: Colors.green),
+                    ),
+                    Text(
+                      "34.3",
+                      style: kNumberTextStyle,
+                    ),
+                    Text("Your weight seems to be normal , so its okay")
+                  ],
+                ),
+              ),
+              color: kActiveCardColor,
+            ),
+            Container()
           ],
         ));
   }

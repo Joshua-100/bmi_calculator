@@ -9,4 +9,6 @@ const kBottomContainerHeight = 80.0;
 const kMarginTop = 10.0;
 const kActiveCardColor = Color(0xFF1D1E33);
 const kInactiveCardColor = Color(0xFF111328);
+const kButtonColor = Color(0xFFEB1555);
 const kNumberTextStyle = TextStyle(fontSize: 80.0, fontWeight: FontWeight.w900);
+const kButtonTextStyle = TextStyle(color: Colors.white, fontSize: 35);
