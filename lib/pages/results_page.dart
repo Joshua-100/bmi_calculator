@@ -17,17 +17,21 @@ class ResultsPage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Center(
-              child: Text(
-                "Your Results",
-                style: kLabelTextStyle,
+            Expanded(
+              child: Center(
+                child: Text(
+                  "Your Results",
+                  style: kLabelTextStyle,
+                ),
               ),
             ),
-            ReusableCard(
-              cardChild: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 150, horizontal: 50),
-                child: Column(
+            Expanded(
+              flex: 6,
+              child: ReusableCard(
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+
                   children: [
                     Text(
                       "Normal",
@@ -37,14 +41,20 @@ class ResultsPage extends StatelessWidget {
                       "34.3",
                       style: kNumberTextStyle,
                     ),
-                    Text("Your weight seems to be normal , so its okay", style: TextStyle(fontSize: 22),)
+                    Text(
+                      "Your weight seems to be normal , so its okay",
+                      style: TextStyle(fontSize: 22),
+                    )
                   ],
                 ),
+                color: kActiveCardColor,
               ),
-              color: kActiveCardColor,
             ),
-            MyButton(
-                text: "RE-CALCULATE", onPressed: () => Navigator.pop(context))
+            Expanded(
+              child: MyButton(
+                  text: "RE-CALCULATE",
+                  onPressed: () => Navigator.pop(context)),
+            )
           ],
         ));
   }
