@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
@@ -14,7 +15,7 @@ class ResultsPage extends StatelessWidget {
           title: const Text("Results"),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Center(
               child: Text(
@@ -36,13 +37,14 @@ class ResultsPage extends StatelessWidget {
                       "34.3",
                       style: kNumberTextStyle,
                     ),
-                    Text("Your weight seems to be normal , so its okay")
+                    Text("Your weight seems to be normal , so its okay", style: TextStyle(fontSize: 22),)
                   ],
                 ),
               ),
               color: kActiveCardColor,
             ),
-            Container()
+            MyButton(
+                text: "RE-CALCULATE", onPressed: () => Navigator.pop(context))
           ],
         ));
   }

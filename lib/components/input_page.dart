@@ -180,16 +180,10 @@ class _inputPageState extends State<inputPage> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultsPage(),
-                ),
-              ),
-              child: MyButton(
-                text: 'CALCULATE', onPressed: () { print("Yess"); },
-              ),
+            MyButton(
+              text: "CALCULATE",
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultsPage())),
             )
           ],
         ));
