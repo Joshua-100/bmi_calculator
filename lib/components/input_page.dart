@@ -5,6 +5,7 @@ import "package:bmi_calculator/components/card_elements.dart";
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/pages/results_page.dart';
 
 enum GenderType { male, female }
 
@@ -162,11 +163,13 @@ class _inputPageState extends State<inputPage> {
                                     age--;
                                   });
                                 }),
-                            RoundButton(icon: FontAwesomeIcons.plus, onPressed: (){
-                              setState(() {
-                                age++;
-                              });
-                            })
+                            RoundButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                })
                           ],
                         )
                       ],
@@ -176,11 +179,19 @@ class _inputPageState extends State<inputPage> {
                 ],
               ),
             ),
-            Container(
-              color: const Color(0xFFEB1555),
-              margin: const EdgeInsets.only(top: kMarginTop),
-              width: double.infinity,
-              height: kBottomContainerHeight,
+            GestureDetector(
+              onTap:() => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(),
+                ),
+              ),
+              child: Container(
+                color: const Color(0xFFEB1555),
+                margin: const EdgeInsets.only(top: kMarginTop),
+                width: double.infinity,
+                height: kBottomContainerHeight,
+              ),
             )
           ],
         ));
@@ -204,5 +215,3 @@ class RoundButton extends StatelessWidget {
     );
   }
 }
-
-
