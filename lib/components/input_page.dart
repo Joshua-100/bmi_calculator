@@ -194,7 +194,7 @@ class _inputPageState extends State<inputPage> {
                 child: Center(
                   child: const Text(
                     "CALCULATE",
-                    style: kNumberTextStyle),
+                    style: TextStyle(color: Colors.white, fontSize: 35),
                   ),
                 ),
               ),
