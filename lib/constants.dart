@@ -7,7 +7,7 @@ const kLabelTextStyle =
 
 const kBottomContainerHeight = 80.0;
 const kMarginTop = 10.0;
-const kActiveCardColor = Color(0xFF54FF3B);
+const kActiveCardColor = Color(0xFF1D1E33);
 const kInactiveCardColor = Color(0xFF111328);
 const kButtonColor = Colors.yellow;
 const kNumberTextStyle = TextStyle(fontSize: 80.0, fontWeight: FontWeight.w900);
