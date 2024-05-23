@@ -48,9 +48,11 @@ class ResultsPage extends StatelessWidget {
                       bmiResult,
                       style: kNumberTextStyle,
                     ),
-                    Text(
-                      bmiResultComment,
-                      style: TextStyle(fontSize: 22),
+                    Center(
+                      child: Text(
+                        bmiResultComment,
+                        style: TextStyle(fontSize: 22),
+                      ),
                     )
                   ],
                 ),
