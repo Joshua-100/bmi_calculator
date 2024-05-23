@@ -11,7 +11,6 @@ class CalculationBrain {
   late double _bmi;
 
   String calculateBmiResult() {
-    _bmi = weight / pow(height / 100, 2);
     return _bmi.toStringAsFixed(1);
   }
 

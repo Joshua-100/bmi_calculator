@@ -116,7 +116,7 @@ class _inputPageState extends State<inputPage> {
                     cardChild: Column(
                       children: [
                         const Text(
-                          "WEIGHT",
+                          "WEIGHT🙈",
                           style: kLabelTextStyle,
                         ),
                         Text(
